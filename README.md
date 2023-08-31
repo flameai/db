@@ -5,7 +5,7 @@
 
 requirements.txt
 ```text
-11
+git+https://github.com/flameai/db.git@{tag}#common_db
 ```
 
 ## Линтинг кода и код-стайл:

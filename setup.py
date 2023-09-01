@@ -11,7 +11,7 @@ setup(
             'asyncpg==0.28.0'
         ],
         'Redis': [
-            'aioredis==2.0.1'
+            'redis[hiredis]==5.0.0'
         ]
     }
 )

@@ -8,6 +8,7 @@ class Postgres(AppEventProvidedComponent):
     он перед вами в полной красе: вместо того, чтобы поставить в зависимость либу FastAPI от
     либы DB, мы просто объявили интерфейс в либе FastAPI и реализуем его во всех остальных компонентах.
     """
+
     async def startup(self, app: ComponentProvidedApp) -> None:
         app.db = Session
 

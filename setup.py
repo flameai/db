@@ -7,14 +7,11 @@ setup(
     author='Alexander Andryukov',
     author_email='andryukov@gmail.com',
     extras_require={
-        'ClickHouse': [
-            'clickhouse-driver==0.2.6',
-        ],
-        'MySQL': [
-            'asyncmy==0.2.8',
-        ],
         'Postgres': [
             'asyncpg==0.28.0'
         ],
+        'Redis': [
+            'aioredis==2.0.1'
+        ]
     }
 )

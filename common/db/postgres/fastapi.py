@@ -10,7 +10,7 @@ class Postgres(AppEventProvidedComponent):
     """
 
     async def startup(self, app: ComponentProvidedApp) -> None:
-        app.db = Session
+        app.config["sql_db"] = Session
 
     async def shutdown(self, app: ComponentProvidedApp) -> None:
         await engine.dispose()

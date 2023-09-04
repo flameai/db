@@ -1,4 +1,4 @@
-import redis
+import redis.asyncio as redis
 
 from common.db.redis.settings import (
     REDIS_DB,

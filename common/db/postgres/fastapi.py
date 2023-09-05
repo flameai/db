@@ -1,4 +1,4 @@
-from common.fastapi.base import AppEventProvidedComponent, ComponentProvidedApp
+from common.fastapi.base import AppEventProvidedComponent, ComponentProvidedApp, ComponentCategoryGetterEnum
 from common.db.postgres.async_session import Session, engine
 
 
@@ -10,7 +10,7 @@ class Postgres(AppEventProvidedComponent):
     """
 
     async def startup(self, app: ComponentProvidedApp) -> None:
-        app.config["sql_db"] = Session
+        app.config[ComponentCategoryGetterEnum.RelationalDB] = Session
 
     async def shutdown(self, app: ComponentProvidedApp) -> None:
         await engine.dispose()

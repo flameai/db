@@ -1,17 +1,12 @@
-from common.fastapi.base import AppEventProvidedComponent, ComponentProvidedApp
-from common.fastapi.config import AppConfig, ComponentCategoryGetterEnum
+from common.fastapi.base import AppBaseComponent
+from common.fastapi.registry import ComponentCategoryEnum
 from common.db.postgres.async_session import Session, engine
 
 
-class Postgres(AppEventProvidedComponent):
-    """
-    Итак, леди и джентльмены! Кто не видел, как работает принцип DIP (Dependency Inversion Principle)
-    он перед вами в полной красе: вместо того, чтобы поставить в зависимость либу FastAPI от
-    либы DB, мы просто объявили интерфейс в либе FastAPI и реализуем его во всех остальных компонентах.
-    """
+class Postgres(AppBaseComponent):
+    CATEGORY = ComponentCategoryEnum.RelationalDB
 
-    async def startup(self, app: ComponentProvidedApp) -> None:
-        AppConfig[ComponentCategoryGetterEnum.RelationalDB] = Session
+    session = Session
 
-    async def shutdown(self, app: ComponentProvidedApp) -> None:
+    async def shutdown(self) -> None:
         await engine.dispose()

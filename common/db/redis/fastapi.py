@@ -1,12 +1,12 @@
-from common.fastapi.base import AppEventProvidedComponent, ComponentProvidedApp
-from common.fastapi.config import AppConfig, ComponentCategoryGetterEnum
-from common.db.redis.async_redis import redis
-from common.db.redis.fabric import RedisMethodsFabric
+from common.fastapi.base import AppBaseComponent
+from common.fastapi.registry import ComponentCategoryEnum
 
 
-class Redis(AppEventProvidedComponent):
-    async def startup(self, app: ComponentProvidedApp) -> None:
-        AppConfig[ComponentCategoryGetterEnum.NoSQLDB] = RedisMethodsFabric(redis)
+class Redis(AppBaseComponent):
+    CATEGORY = ComponentCategoryEnum.NoSQLDB
 
-    async def shutdown(self, app: ComponentProvidedApp) -> None:
-        await app.redis.close()
+    async def startup(self) -> None:
+        pass
+
+    async def shutdown(self) -> None:
+        pass

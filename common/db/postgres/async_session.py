@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy.ext.asyncio import async_sessionmaker
+from sqlalchemy.ext.asyncio.session import async_sessionmaker
 
 from common.db.postgres.settings import POSTGRES_DSN
 

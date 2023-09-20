@@ -15,3 +15,6 @@ class RedisMethodsFabric:  # TODO Derive from common abstract ancestor
     async def while_key_was_not_changed(self, key):
         ...  # Make observing context manager for particular key
         yield
+
+    async def close(self):
+        pass
